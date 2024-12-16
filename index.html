@@ -17,8 +17,9 @@
 
     .container {
       display: flex;
+      flex-direction: column;
       gap: 20px;
-      width: 80%;
+      width: 90%;
       max-width: 1000px;
       background-color: #fff;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -26,11 +27,34 @@
       padding: 20px;
     }
 
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row;
+      }
+    }
+    @media (max-width: 400px){
+      .container {
+        padding-top: 120px;
+        padding-bottom: 120px;
+      }
+    }
+
     .form-section {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 15px;
+    }
+
+    .form-section h2 {
+      text-align: center;
+      margin: 0;
+    }
+
+    @media (max-width: 767px) {
+      .form-section h2 {
+        padding-top: 120px;
+      }
     }
 
     .form-section label {
@@ -65,6 +89,8 @@
       border: 1px solid #ddd;
       border-radius: 8px;
     }
+
+    
 
     .badge-preview img {
       width: 100%;
@@ -106,13 +132,15 @@
       font-size: 16px;
       margin-top: 5px;
     }
+
+    
   </style>
 </head>
 <body>
   <div class="container">
     <!-- Formulário -->
     <div class="form-section">
-      <h2 style="text-align: center;">Gerador de crachá</h2>
+      <h2>Gerador de crachá</h2>
       <label for="name">Nome:</label>
       <input type="text" id="name" placeholder="Digite o nome">
 
@@ -121,7 +149,7 @@
 
       <input type="file" accept="image/*" id="foto" >
 
-      <!-- <button onclick="generateBadge()">Ver prévia</button> -->
+      <button onclick="generateBadge()">Ver prévia</button>
       <button onclick="exportAsPng()">Exportar como PNG</button>
     </div>
 
